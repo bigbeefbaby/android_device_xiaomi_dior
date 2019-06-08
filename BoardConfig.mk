@@ -162,6 +162,11 @@ DONT_DEXPREOPT_PREBUILTS += false
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
+ifneq ($(HOST_OS),darwin)
+SDCLANG := true
+SDCLANG_PATH := prebuilts/clang/host/linux-x86/sdclang-6.0/bin
+SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+endif
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
